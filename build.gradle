@@ -17,6 +17,7 @@ task chrome(type: Test) {
     systemProperties = System.properties
     testLogging.showStandardStreams = true
     systemProperties['selenide.browser'] = 'chrome'
+    systemProperties['selenide.headless'] = 'true'
     useTestNG {
         useDefaultListeners = true
     }
@@ -26,6 +27,7 @@ task firefox(type: Test) {
     systemProperties = System.properties
     testLogging.showStandardStreams = true
     systemProperties['selenide.browser'] = 'firefox'
+    systemProperties['selenide.headless'] = 'true'
     useTestNG {
         useDefaultListeners = true
     }
