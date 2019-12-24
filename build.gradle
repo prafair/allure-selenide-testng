@@ -1,0 +1,32 @@
+plugins {
+    id "java"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile 'com.codeborne:selenide:5.5.1'
+    compile group: 'io.qameta.allure', name: 'allure-selenide', version: '2.13.0'
+}
+
+task chrome(type: Test) {
+    systemProperties = System.properties
+    testLogging.showStandardStreams = true
+    systemProperties['selenide.browser'] = 'chrome'
+    useTestNG {
+        useDefaultListeners = true
+    }
+}
+
+task firefox(type: Test) {
+    systemProperties = System.properties
+    testLogging.showStandardStreams = true
+    systemProperties['selenide.browser'] = 'firefox'
+    useTestNG {
+        useDefaultListeners = true
+    }
+}
